@@ -1,0 +1,351 @@
+<!DOCTYPE html>
+<!--
+  ===========================================================================
+  CURL POWER — website
+  Palette from the Crown Oasis brand board, with deeper shades of the same
+  green used as grounds so the gold reads as metal rather than flat yellow.
+
+  STILL TO FILL IN — search for "EDIT ME":
+    1. YOURDOMAIN.com in the <head>   2. Opening hours   3. Email
+    4. Instagram   5. Your name in the portrait alt text
+    6. Two About paragraphs           7. Three client photos
+  Assets: logo.png · mark.png · owner.jpg
+  ===========================================================================
+-->
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="color-scheme" content="light">
+<title>Curl Power — The Curl Experts | Curly Hair Salon in Rochester, NY</title>
+<meta name="description" content="Personalized haircare and education for every texture, age and culture. Curl cuts, haircuts, color, blowouts and event styling in downtown Rochester, NY.">
+<link rel="canonical" href="https://YOURDOMAIN.com/">
+<meta property="og:type" content="website">
+<meta property="og:title" content="Curl Power — The Curl Experts">
+<meta property="og:description" content="Personalized haircare and education for every texture, age and culture. Downtown Rochester, NY.">
+<meta property="og:url" content="https://YOURDOMAIN.com/">
+<link rel="icon" href="mark.png">
+<link rel="apple-touch-icon" href="mark.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;1,300;1,400&family=Jost:wght@300;400;500&display=swap" rel="stylesheet">
+
+<style>
+:root{
+  --green-900:#0F241C;
+  --green-800:#152F26;
+  --green:#1D4034;
+  --green-mid:#2F5D50;
+  --gold:#F4B942;
+  --gold-text:#F6C768;
+  --gold-muted:#CFAF6E;
+  --coral:#FF6F61;
+  --coral-strong:#F05A4B;
+  --coral-text:#B85046;
+  --coral-on-sand:#A1463D;
+  --sand:#EBDCCB;
+  --paper:#F8F6F2;
+  --ink:#332C24;
+  --muted:#7A6E62;
+  --display:"Cormorant Garamond",Georgia,serif;
+  --body:"Jost","Segoe UI",system-ui,sans-serif;
+  --pad:clamp(1.25rem,5vw,4.5rem);
+  --metal:linear-gradient(104deg,#F9E4AE 0%,#F4B942 26%,#C9982F 48%,#F7D98A 68%,#E3AC42 100%);
+}
+*,*::before,*::after{box-sizing:border-box}
+html{scroll-behavior:smooth;scroll-padding-top:5rem;-webkit-text-size-adjust:100%}
+body{margin:0;background:var(--paper);color:var(--ink);font-family:var(--body);
+  font-size:clamp(1rem,.96rem + .2vw,1.07rem);line-height:1.68;font-weight:300;-webkit-font-smoothing:antialiased}
+img{max-width:100%;height:auto;display:block}
+a{color:inherit}
+:focus-visible{outline:2px solid var(--gold);outline-offset:4px;border-radius:2px}
+h1,h2,h3{font-family:var(--display);font-weight:400;line-height:1.06;margin:0}
+p{margin:0 0 1rem}
+.wrap{max-width:74rem;margin-inline:auto;padding-inline:var(--pad);position:relative;z-index:2}
+
+/* metallic gold type */
+.metal{color:var(--gold)}
+@supports ((-webkit-background-clip:text) or (background-clip:text)){
+  .metal{background:var(--metal);-webkit-background-clip:text;background-clip:text;
+         color:transparent;-webkit-text-fill-color:transparent}
+}
+
+/* eyebrow label with hairline */
+.label{display:flex;align-items:center;gap:.9rem;font-family:var(--body);font-weight:400;
+  font-size:.72rem;letter-spacing:.3em;margin:0 0 1.4rem;color:var(--coral-text)}
+.label::before{content:"";width:2.2rem;height:1px;background:currentColor;opacity:.55;flex:none}
+.band-sand .label{color:var(--coral-on-sand)}
+.on-dark .label{color:var(--gold-text)}
+@media(max-width:920px){.hero .label{justify-content:center}}
+
+/* buttons */
+.btn{display:inline-flex;align-items:center;justify-content:center;
+  font-family:var(--body);font-weight:400;font-size:1rem;letter-spacing:.09em;line-height:1;
+  padding:1.1rem 2.3rem;border-radius:100px;text-decoration:none;
+  background:linear-gradient(180deg,#F4675A,#E0503F);color:#fff;border:1px solid rgba(0,0,0,.06);
+  box-shadow:0 10px 26px -14px rgba(224,80,63,.9);
+  transition:filter .2s,transform .2s,box-shadow .2s}
+.btn:hover{filter:brightness(1.07);transform:translateY(-2px);box-shadow:0 16px 32px -14px rgba(224,80,63,.95)}
+.btn-gold{background:none;color:var(--gold-text);border:1px solid rgba(244,185,66,.5);box-shadow:none}
+.btn-gold:hover{background:rgba(244,185,66,.1);border-color:var(--gold);filter:none}
+.btn-dark{background:none;color:var(--green-mid);border:1px solid rgba(47,93,80,.35);box-shadow:none}
+.btn-dark:hover{background:rgba(47,93,80,.07);border-color:var(--green-mid);filter:none}
+.btn-sm{padding:.72rem 1.5rem;font-size:.9rem}
+
+/* header */
+.top{position:sticky;top:0;z-index:60;background:rgba(15,36,28,.93);backdrop-filter:blur(14px);
+  border-bottom:1px solid rgba(207,175,110,.28)}
+.top-in{display:flex;align-items:center;gap:1.5rem;min-height:4.4rem}
+.brand{display:flex;align-items:center;gap:.75rem;text-decoration:none;margin-right:auto}
+.brand img{width:36px}
+.brand b{font-family:var(--display);font-weight:500;font-size:1.32rem;letter-spacing:.06em}
+.nav{display:flex;align-items:center;gap:2rem}
+.nav a{text-decoration:none;font-size:.86rem;letter-spacing:.13em;color:rgba(248,246,242,.68);transition:color .18s}
+.nav a:hover{color:var(--gold-text)}
+.nav .btn{color:#fff;letter-spacing:.09em}
+@media(max-width:840px){.nav .hide-sm{display:none}}
+
+/* botanicals */
+.leaf{position:absolute;pointer-events:none;z-index:1}
+.leaf path{fill:none;stroke:var(--gold-muted);stroke-width:1.4;stroke-linecap:round;opacity:.22}
+.leaf-tl{top:-4rem;left:-7rem;width:28rem;transform:rotate(-14deg)}
+.leaf-br{bottom:-6rem;right:-8rem;width:32rem;transform:rotate(168deg)}
+@media(max-width:900px){.leaf-tl{width:17rem;left:-8rem}.leaf-br{width:18rem;right:-8rem}}
+
+/* hero */
+.hero{position:relative;overflow:hidden;color:var(--paper);padding-block:clamp(3.2rem,7vw,5.5rem);
+  background:
+    radial-gradient(56% 48% at 74% 40%,rgba(244,185,66,.14),transparent 68%),
+    radial-gradient(90% 90% at 50% 0%,#24493C 0%,var(--green) 42%,#143026 100%)}
+.hero-grid{display:grid;grid-template-columns:1.02fr .98fr;gap:clamp(1.5rem,5vw,4rem);align-items:center}
+@media(max-width:920px){.hero-grid{grid-template-columns:1fr;text-align:center}}
+.hero h1{font-size:clamp(3rem,8.6vw,5.7rem);font-weight:300;letter-spacing:-.005em;margin-bottom:1.5rem}
+.hero h1 em{font-style:italic;font-weight:400}
+.hero .sub{font-size:clamp(1.05rem,2.1vw,1.22rem);color:rgba(248,246,242,.82);max-width:30rem;margin-bottom:.55rem}
+.hero .loc{font-size:.84rem;letter-spacing:.14em;color:rgba(248,246,242,.5);margin-bottom:2.4rem}
+@media(max-width:920px){.hero .sub{margin-inline:auto}}
+.hero-cta{display:flex;flex-wrap:wrap;gap:.8rem}
+@media(max-width:920px){.hero-cta{justify-content:center}}
+.hero-art{position:relative;display:grid;place-items:center;min-height:clamp(20rem,44vw,30rem)}
+.stage{position:absolute;width:min(104%,32rem);aspect-ratio:1;z-index:1}
+.stage circle,.stage path{fill:none}
+.stage .ring{stroke:var(--gold-muted);stroke-dasharray:1;stroke-dashoffset:1}
+.stage .curl path{stroke:var(--gold);stroke-width:2.4;stroke-linecap:round;opacity:.9}
+.hero-logo{width:min(56%,16.5rem);position:relative;z-index:2;
+  filter:drop-shadow(0 10px 30px rgba(0,0,0,.35))}
+
+/* load sequence — one orchestrated moment, nothing animates on scroll */
+@keyframes draw{to{stroke-dashoffset:0}}
+@keyframes rise{from{opacity:0;transform:translateY(16px)}to{opacity:1;transform:none}}
+@keyframes bloom{from{opacity:0;transform:scale(.93)}to{opacity:1;transform:none}}
+.stage .ring{animation:draw 1.5s cubic-bezier(.33,.9,.36,1) both}
+.stage .curl path{stroke-dasharray:1;stroke-dashoffset:1;
+  animation:draw 1.15s cubic-bezier(.33,.9,.36,1) both;animation-delay:inherit}
+.hero-logo{animation:bloom .95s cubic-bezier(.2,.7,.3,1) .05s both}
+.hero .label{animation:rise .8s ease-out .15s both}
+.hero h1{animation:rise .9s cubic-bezier(.2,.7,.3,1) .28s both}
+.hero .sub{animation:rise .9s ease-out .44s both}
+.hero .loc{animation:rise .9s ease-out .54s both}
+.hero-cta{animation:rise .9s ease-out .64s both}
+@media(prefers-reduced-motion:reduce){
+  html{scroll-behavior:auto}
+  .stage .ring,.stage .curl path{animation:none;stroke-dashoffset:0}
+  .hero-logo,.hero .label,.hero h1,.hero .sub,.hero .loc,.hero-cta{animation:none}
+  .btn{transition:none}
+}
+
+/* bands */
+.band{position:relative;overflow:hidden;padding-block:clamp(3.5rem,8vw,6rem)}
+.band-sand{background:var(--sand)}
+.band-green{background:var(--green-mid);color:var(--paper)}
+.band-deep{background:var(--green-800);color:var(--paper)}
+.band h2{font-size:clamp(2.3rem,5.6vw,3.6rem);font-weight:300;margin-bottom:.8rem}
+.band .lede{color:var(--muted);max-width:36rem;margin-bottom:3.2rem}
+.on-dark .lede{color:rgba(248,246,242,.72)}
+
+/* services */
+.svc{display:grid;grid-template-columns:repeat(auto-fit,minmax(17rem,1fr));gap:0 4rem;list-style:none;margin:0;padding:0}
+.svc li{display:flex;align-items:baseline;gap:1rem;padding-block:1.35rem;
+  border-bottom:1px solid rgba(207,175,110,.45);
+  font-family:var(--display);font-size:clamp(1.35rem,2.7vw,1.7rem);font-weight:400;color:var(--green-mid)}
+.dot{flex:none;width:.42rem;height:.42rem;border-radius:50%;background:var(--coral);transform:translateY(-.25rem)}
+.svc-note{margin:2.8rem 0 0;color:var(--muted);font-size:.94rem}
+
+/* about */
+.about-grid{display:grid;grid-template-columns:.82fr 1.18fr;gap:clamp(2.5rem,6vw,5rem);align-items:center}
+@media(max-width:900px){.about-grid{grid-template-columns:1fr}}
+.portrait{margin:0;position:relative;max-width:25rem;width:100%}
+@media(max-width:900px){.portrait{margin-inline:auto}}
+.portrait img{width:100%;border-radius:2px;position:relative;z-index:2}
+.portrait::after{content:"";position:absolute;inset:0;transform:translate(16px,16px);
+  border:1px solid rgba(244,185,66,.65);border-radius:2px;z-index:1}
+.pull{font-family:var(--display);font-size:clamp(1.7rem,4vw,2.5rem);font-weight:300;
+  font-style:italic;line-height:1.26;margin:0 0 1.6rem}
+.about-grid p:not(.pull):not(.label){color:rgba(248,246,242,.78)}
+
+/* gallery */
+.gal{display:grid;grid-template-columns:repeat(auto-fit,minmax(15rem,1fr));gap:1.4rem}
+.gal img{aspect-ratio:4/5;object-fit:cover;border-radius:2px;width:100%}
+.slot{aspect-ratio:4/5;border-radius:2px;background:var(--sand);
+  border:1px solid rgba(207,175,110,.7);display:grid;place-items:center;text-align:center;padding:1.5rem}
+.slot svg{width:2.6rem;height:2.6rem;margin:0 auto .9rem;fill:none;stroke:var(--gold-muted);stroke-width:1.1}
+.slot p{margin:0;font-size:.72rem;letter-spacing:.22em;color:#8A7A66}
+
+/* booking */
+.shell{background:#fff;border-radius:3px;overflow:hidden;border:1px solid rgba(207,175,110,.55);
+  box-shadow:0 26px 60px -34px rgba(15,36,28,.55);min-height:760px}
+.shell iframe{display:block;width:100%;border:0;min-height:760px}
+.fallback{margin-top:1.3rem;color:#6E6255;font-size:.9rem}
+.fallback a{color:var(--coral-on-sand)}
+
+/* visit */
+.facts{display:grid;grid-template-columns:repeat(auto-fit,minmax(13rem,1fr));gap:2.8rem}
+.fact h3{font-family:var(--body);font-size:.72rem;font-weight:400;letter-spacing:.24em;
+  color:var(--gold-text);margin-bottom:.9rem}
+.fact p{margin:0;color:rgba(248,246,242,.78);font-size:.98rem}
+.fact a{color:inherit;text-underline-offset:3px}
+
+/* footer */
+.foot{background:var(--green-900);color:#BFC9C3;padding-block:2.4rem;font-size:.8rem;letter-spacing:.09em}
+.foot-in{display:flex;flex-wrap:wrap;gap:1rem 2rem;align-items:center;justify-content:space-between}
+.foot a{color:#DCE3DF}
+</style>
+</head>
+<body>
+
+<header class="top">
+  <div class="wrap top-in">
+    <a class="brand" href="#top"><img src="mark.png" alt=""><b class="metal">Curl Power</b></a>
+    <nav class="nav">
+      <a class="hide-sm" href="#services">Services</a>
+      <a class="hide-sm" href="#about">About</a>
+      <a class="hide-sm" href="#visit">Visit</a>
+      <a class="btn btn-sm" href="#book">Book</a>
+    </nav>
+  </div>
+</header>
+
+<main id="top">
+
+<section class="hero on-dark">
+  <svg class="leaf leaf-tl" viewBox="0 0 250 250" aria-hidden="true"><path d="M10 230 Q70 70 230 10"/><path d="M20.2 205.0 Q27.3 204.1 30.2 209.5"/><path d="M20.2 205.0 Q16.3 199.2 10.2 200.6"/><path d="M31.0 182.8 Q48.8 181.5 55.5 195.6"/><path d="M31.0 182.8 Q21.9 167.4 6.5 170.0"/><path d="M42.9 161.7 Q68.9 161.5 77.3 182.5"/><path d="M42.9 161.7 Q31.1 138.6 8.5 140.9"/><path d="M55.9 141.7 Q88.1 143.5 96.7 170.2"/><path d="M55.9 141.7 Q43.1 112.1 15.1 113.2"/><path d="M70.0 122.8 Q106.4 127.3 114.2 158.3"/><path d="M70.0 122.8 Q57.8 88.3 25.9 87.3"/><path d="M85.3 105.1 Q123.9 112.6 130.0 146.3"/><path d="M85.3 105.1 Q74.7 67.3 40.6 63.9"/><path d="M101.7 88.5 Q140.4 98.8 144.3 133.5"/><path d="M101.7 88.5 Q93.6 49.2 59.1 43.5"/><path d="M119.2 73.0 Q156.2 85.5 157.6 119.6"/><path d="M119.2 73.0 Q113.9 34.3 80.8 26.4"/><path d="M137.8 58.6 Q171.2 72.5 170.5 104.0"/><path d="M137.8 58.6 Q135.3 22.6 105.2 13.2"/><path d="M157.6 45.4 Q185.8 59.4 183.4 86.7"/><path d="M157.6 45.4 Q157.5 13.9 131.8 4.1"/><path d="M178.5 33.3 Q200.2 45.8 196.8 67.3"/><path d="M178.5 33.3 Q180.0 8.3 160.2 -0.8"/><path d="M200.5 22.3 Q214.4 31.5 211.3 45.6"/><path d="M200.5 22.3 Q202.5 5.8 189.7 -1.0"/><path d="M223.6 12.4 Q227.8 15.6 226.6 20.0"/><path d="M223.6 12.4 Q224.6 7.3 220.7 4.9"/></svg>
+  <svg class="leaf leaf-br" viewBox="0 0 250 250" aria-hidden="true"><path d="M10 230 Q70 70 230 10"/><path d="M20.2 205.0 Q27.3 204.1 30.2 209.5"/><path d="M20.2 205.0 Q16.3 199.2 10.2 200.6"/><path d="M31.0 182.8 Q48.8 181.5 55.5 195.6"/><path d="M31.0 182.8 Q21.9 167.4 6.5 170.0"/><path d="M42.9 161.7 Q68.9 161.5 77.3 182.5"/><path d="M42.9 161.7 Q31.1 138.6 8.5 140.9"/><path d="M55.9 141.7 Q88.1 143.5 96.7 170.2"/><path d="M55.9 141.7 Q43.1 112.1 15.1 113.2"/><path d="M70.0 122.8 Q106.4 127.3 114.2 158.3"/><path d="M70.0 122.8 Q57.8 88.3 25.9 87.3"/><path d="M85.3 105.1 Q123.9 112.6 130.0 146.3"/><path d="M85.3 105.1 Q74.7 67.3 40.6 63.9"/><path d="M101.7 88.5 Q140.4 98.8 144.3 133.5"/><path d="M101.7 88.5 Q93.6 49.2 59.1 43.5"/><path d="M119.2 73.0 Q156.2 85.5 157.6 119.6"/><path d="M119.2 73.0 Q113.9 34.3 80.8 26.4"/><path d="M137.8 58.6 Q171.2 72.5 170.5 104.0"/><path d="M137.8 58.6 Q135.3 22.6 105.2 13.2"/><path d="M157.6 45.4 Q185.8 59.4 183.4 86.7"/><path d="M157.6 45.4 Q157.5 13.9 131.8 4.1"/><path d="M178.5 33.3 Q200.2 45.8 196.8 67.3"/><path d="M178.5 33.3 Q180.0 8.3 160.2 -0.8"/><path d="M200.5 22.3 Q214.4 31.5 211.3 45.6"/><path d="M200.5 22.3 Q202.5 5.8 189.7 -1.0"/><path d="M223.6 12.4 Q227.8 15.6 226.6 20.0"/><path d="M223.6 12.4 Q224.6 7.3 220.7 4.9"/></svg>
+  <div class="wrap hero-grid">
+    <div>
+      <p class="label">THE CURL EXPERTS</p>
+      <h1>Every curl,<br><em class="metal">understood.</em></h1>
+      <p class="sub">Personalized haircare and education for every texture, age and culture.</p>
+      <p class="loc">DOWNTOWN ROCHESTER</p>
+      <div class="hero-cta">
+        <a class="btn" href="#book">Book an appointment</a>
+        <a class="btn btn-gold" href="tel:+15853974588">585-397-4588</a>
+      </div>
+    </div>
+    <div class="hero-art">
+      <svg class="stage" viewBox="0 0 520 520" aria-hidden="true">
+        <circle class="ring" pathLength="1" cx="260" cy="260" r="246" stroke-width="1" opacity=".45" style="animation-delay:.1s"/>
+        <circle class="ring" pathLength="1" cx="260" cy="260" r="232" stroke-width="1.8" opacity=".8" style="animation-delay:.2s"/>
+        <circle class="ring" pathLength="1" cx="260" cy="260" r="206" stroke-width=".8" opacity=".3" style="animation-delay:.3s"/>
+        <g class="curl"><g transform="translate(368.9 464.8) rotate(152) scale(1.00)" style="animation-delay:0.30s"><path pathLength="1" d="M30.0 0.0A25.8 25.8 0 0 1 -21.6 0.0A18.6 18.6 0 0 1 15.6 0.0A13.4 13.4 0 0 1 -11.2 0.0A9.6 9.6 0 0 1 8.1 0.0A6.9 6.9 0 0 1 -5.8 0.0"/></g><g transform="translate(151.1 464.8) rotate(208) scale(0.74)" style="animation-delay:0.39s"><path pathLength="1" d="M30.0 0.0A25.8 25.8 0 0 -1 -21.6 0.0A18.6 18.6 0 0 -1 15.6 0.0A13.4 13.4 0 0 -1 -11.2 0.0A9.6 9.6 0 0 -1 8.1 0.0A6.9 6.9 0 0 -1 -5.8 0.0"/></g><g transform="translate(33.1 308.2) rotate(258) scale(0.92)" style="animation-delay:0.47s"><path pathLength="1" d="M30.0 0.0A25.8 25.8 0 0 1 -21.6 0.0A18.6 18.6 0 0 1 15.6 0.0A13.4 13.4 0 0 1 -11.2 0.0A9.6 9.6 0 0 1 8.1 0.0A6.9 6.9 0 0 1 -5.8 0.0"/></g><g transform="translate(117.2 77.2) rotate(322) scale(0.66)" style="animation-delay:0.56s"><path pathLength="1" d="M30.0 0.0A25.8 25.8 0 0 -1 -21.6 0.0A18.6 18.6 0 0 -1 15.6 0.0A13.4 13.4 0 0 -1 -11.2 0.0A9.6 9.6 0 0 -1 8.1 0.0A6.9 6.9 0 0 -1 -5.8 0.0"/></g><g transform="translate(346.9 44.9) rotate(382) scale(1.02)" style="animation-delay:0.64s"><path pathLength="1" d="M30.0 0.0A25.8 25.8 0 0 1 -21.6 0.0A18.6 18.6 0 0 1 15.6 0.0A13.4 13.4 0 0 1 -11.2 0.0A9.6 9.6 0 0 1 8.1 0.0A6.9 6.9 0 0 1 -5.8 0.0"/></g><g transform="translate(483.0 196.1) rotate(434) scale(0.78)" style="animation-delay:0.72s"><path pathLength="1" d="M30.0 0.0A25.8 25.8 0 0 -1 -21.6 0.0A18.6 18.6 0 0 -1 15.6 0.0A13.4 13.4 0 0 -1 -11.2 0.0A9.6 9.6 0 0 -1 8.1 0.0A6.9 6.9 0 0 -1 -5.8 0.0"/></g><g transform="translate(480.6 331.7) rotate(108) scale(0.70)" style="animation-delay:0.81s"><path pathLength="1" d="M30.0 0.0A25.8 25.8 0 0 1 -21.6 0.0A18.6 18.6 0 0 1 15.6 0.0A13.4 13.4 0 0 1 -11.2 0.0A9.6 9.6 0 0 1 8.1 0.0A6.9 6.9 0 0 1 -5.8 0.0"/></g><g transform="translate(49.7 162.0) rotate(295) scale(0.58)" style="animation-delay:0.89s"><path pathLength="1" d="M30.0 0.0A25.8 25.8 0 0 -1 -21.6 0.0A18.6 18.6 0 0 -1 15.6 0.0A13.4 13.4 0 0 -1 -11.2 0.0A9.6 9.6 0 0 -1 8.1 0.0A6.9 6.9 0 0 -1 -5.8 0.0"/></g><g transform="translate(282.8 521.0) rotate(175)" style="animation-delay:0.98s"><path pathLength="1" d="M0.0 0.0C38.5 -22.7 31.5 -51.3 70.0 -62.1"/></g><g transform="translate(205.5 3.7) rotate(348)" style="animation-delay:1.05s"><path pathLength="1" d="M0.0 0.0C35.2 20.2 28.8 45.6 64.0 55.2"/></g><g transform="translate(33.1 391.0) rotate(240)" style="animation-delay:1.13s"><path pathLength="1" d="M0.0 0.0C31.9 -18.5 26.1 -41.8 58.0 -50.6"/></g><g transform="translate(486.9 129.0) rotate(420)" style="animation-delay:1.20s"><path pathLength="1" d="M0.0 0.0C28.6 16.8 23.4 38.0 52.0 46.0"/></g></g>
+      </svg>
+      <img class="hero-logo" src="logo.png" alt="Curl Power — The Curl Experts" width="700" height="700">
+    </div>
+  </div>
+</section>
+
+<section class="band" id="services">
+  <div class="wrap">
+    <p class="label">WHAT WE DO</p>
+    <h2>Services</h2>
+    <p class="lede">Curls, coils, waves and everything in between &mdash; plus the teaching, so you can do it again at home.</p>
+    <ul class="svc">
+      <li><span class="dot"></span>Curl Cuts</li>
+      <li><span class="dot"></span>Haircuts</li>
+      <li><span class="dot"></span>Hair Coloring</li>
+      <li><span class="dot"></span>Blowouts</li>
+      <li><span class="dot"></span>Event Styling + More</li>
+    </ul>
+    <p class="svc-note">Pricing and appointment length are shown for each service when you book.</p>
+  </div>
+</section>
+
+<section class="band band-green on-dark" id="about">
+  <svg class="leaf leaf-br" viewBox="0 0 250 250" aria-hidden="true"><path d="M10 230 Q70 70 230 10"/><path d="M20.2 205.0 Q27.3 204.1 30.2 209.5"/><path d="M20.2 205.0 Q16.3 199.2 10.2 200.6"/><path d="M31.0 182.8 Q48.8 181.5 55.5 195.6"/><path d="M31.0 182.8 Q21.9 167.4 6.5 170.0"/><path d="M42.9 161.7 Q68.9 161.5 77.3 182.5"/><path d="M42.9 161.7 Q31.1 138.6 8.5 140.9"/><path d="M55.9 141.7 Q88.1 143.5 96.7 170.2"/><path d="M55.9 141.7 Q43.1 112.1 15.1 113.2"/><path d="M70.0 122.8 Q106.4 127.3 114.2 158.3"/><path d="M70.0 122.8 Q57.8 88.3 25.9 87.3"/><path d="M85.3 105.1 Q123.9 112.6 130.0 146.3"/><path d="M85.3 105.1 Q74.7 67.3 40.6 63.9"/><path d="M101.7 88.5 Q140.4 98.8 144.3 133.5"/><path d="M101.7 88.5 Q93.6 49.2 59.1 43.5"/><path d="M119.2 73.0 Q156.2 85.5 157.6 119.6"/><path d="M119.2 73.0 Q113.9 34.3 80.8 26.4"/><path d="M137.8 58.6 Q171.2 72.5 170.5 104.0"/><path d="M137.8 58.6 Q135.3 22.6 105.2 13.2"/><path d="M157.6 45.4 Q185.8 59.4 183.4 86.7"/><path d="M157.6 45.4 Q157.5 13.9 131.8 4.1"/><path d="M178.5 33.3 Q200.2 45.8 196.8 67.3"/><path d="M178.5 33.3 Q180.0 8.3 160.2 -0.8"/><path d="M200.5 22.3 Q214.4 31.5 211.3 45.6"/><path d="M200.5 22.3 Q202.5 5.8 189.7 -1.0"/><path d="M223.6 12.4 Q227.8 15.6 226.6 20.0"/><path d="M223.6 12.4 Q224.6 7.3 220.7 4.9"/></svg>
+  <div class="wrap about-grid">
+    <figure class="portrait">
+      <!-- EDIT ME: put your name in this alt text — it matters for search and screen readers -->
+      <img src="owner.jpg" alt="EDIT ME — your name, founder of Curl Power" width="1000" height="1250">
+    </figure>
+    <div>
+      <p class="label">ABOUT</p>
+      <p class="pull">Personalized haircare and education for every texture, age and culture.</p>
+      <!-- EDIT ME: your own story — who you are, how long you've worked with
+           textured hair, and what a first visit is actually like. -->
+      <p>EDIT ME &mdash; a short paragraph about Curl Power. Who you are, how long you've been working with textured hair, and what someone can expect on a first visit.</p>
+      <p>EDIT ME &mdash; a second paragraph on the education side: what clients leave knowing, and what you send them home with.</p>
+      <a class="btn btn-gold" href="#book" style="margin-top:.6rem">Book a visit</a>
+    </div>
+  </div>
+</section>
+
+<section class="band">
+  <div class="wrap">
+    <p class="label">THE WORK</p>
+    <h2>Recent clients</h2>
+    <p class="lede">EDIT ME &mdash; replace each panel below with your own photo: &lt;img src="photo-1.jpg" alt="Curl cut"&gt;</p>
+    <div class="gal">
+      <div class="slot"><div><svg viewBox="0 0 48 48" aria-hidden="true"><ellipse cx="24" cy="15" rx="7" ry="10.5" transform="rotate(0 24 24)"/><ellipse cx="24" cy="15" rx="7" ry="10.5" transform="rotate(72 24 24)"/><ellipse cx="24" cy="15" rx="7" ry="10.5" transform="rotate(144 24 24)"/><ellipse cx="24" cy="15" rx="7" ry="10.5" transform="rotate(216 24 24)"/><ellipse cx="24" cy="15" rx="7" ry="10.5" transform="rotate(288 24 24)"/><circle cx="24" cy="24" r="3"/></svg><p>PHOTO 1</p></div></div>
+      <div class="slot"><div><svg viewBox="0 0 48 48" aria-hidden="true"><ellipse cx="24" cy="15" rx="7" ry="10.5" transform="rotate(0 24 24)"/><ellipse cx="24" cy="15" rx="7" ry="10.5" transform="rotate(72 24 24)"/><ellipse cx="24" cy="15" rx="7" ry="10.5" transform="rotate(144 24 24)"/><ellipse cx="24" cy="15" rx="7" ry="10.5" transform="rotate(216 24 24)"/><ellipse cx="24" cy="15" rx="7" ry="10.5" transform="rotate(288 24 24)"/><circle cx="24" cy="24" r="3"/></svg><p>PHOTO 2</p></div></div>
+      <div class="slot"><div><svg viewBox="0 0 48 48" aria-hidden="true"><ellipse cx="24" cy="15" rx="7" ry="10.5" transform="rotate(0 24 24)"/><ellipse cx="24" cy="15" rx="7" ry="10.5" transform="rotate(72 24 24)"/><ellipse cx="24" cy="15" rx="7" ry="10.5" transform="rotate(144 24 24)"/><ellipse cx="24" cy="15" rx="7" ry="10.5" transform="rotate(216 24 24)"/><ellipse cx="24" cy="15" rx="7" ry="10.5" transform="rotate(288 24 24)"/><circle cx="24" cy="24" r="3"/></svg><p>PHOTO 3</p></div></div>
+    </div>
+  </div>
+</section>
+
+<section class="band band-sand" id="book">
+  <div class="wrap">
+    <p class="label">APPOINTMENTS</p>
+    <h2>Book with us</h2>
+    <p class="lede" style="color:#6E6255">Pick a service and a time below. You'll get a confirmation straight away, and a reminder before your visit.</p>
+    <div class="shell">
+      <!-- ========= ACUITY BOOKING EMBED — do not change the src ========= -->
+      <iframe
+        src="https://app.acuityscheduling.com/schedule.php?owner=29866814"
+        title="Schedule an appointment with Curl Power"
+        width="100%" height="800" frameborder="0" allow="payment"></iframe>
+      <!-- =============================================================== -->
+    </div>
+    <p class="fallback">Calendar not loading? <a href="https://app.acuityscheduling.com/schedule/35bbb7fe">Book directly on Acuity</a> or call <a href="tel:+15853974588">585-397-4588</a>.</p>
+  </div>
+</section>
+
+<section class="band band-deep on-dark" id="visit">
+  <svg class="leaf leaf-br" viewBox="0 0 250 250" aria-hidden="true"><path d="M10 230 Q70 70 230 10"/><path d="M20.2 205.0 Q27.3 204.1 30.2 209.5"/><path d="M20.2 205.0 Q16.3 199.2 10.2 200.6"/><path d="M31.0 182.8 Q48.8 181.5 55.5 195.6"/><path d="M31.0 182.8 Q21.9 167.4 6.5 170.0"/><path d="M42.9 161.7 Q68.9 161.5 77.3 182.5"/><path d="M42.9 161.7 Q31.1 138.6 8.5 140.9"/><path d="M55.9 141.7 Q88.1 143.5 96.7 170.2"/><path d="M55.9 141.7 Q43.1 112.1 15.1 113.2"/><path d="M70.0 122.8 Q106.4 127.3 114.2 158.3"/><path d="M70.0 122.8 Q57.8 88.3 25.9 87.3"/><path d="M85.3 105.1 Q123.9 112.6 130.0 146.3"/><path d="M85.3 105.1 Q74.7 67.3 40.6 63.9"/><path d="M101.7 88.5 Q140.4 98.8 144.3 133.5"/><path d="M101.7 88.5 Q93.6 49.2 59.1 43.5"/><path d="M119.2 73.0 Q156.2 85.5 157.6 119.6"/><path d="M119.2 73.0 Q113.9 34.3 80.8 26.4"/><path d="M137.8 58.6 Q171.2 72.5 170.5 104.0"/><path d="M137.8 58.6 Q135.3 22.6 105.2 13.2"/><path d="M157.6 45.4 Q185.8 59.4 183.4 86.7"/><path d="M157.6 45.4 Q157.5 13.9 131.8 4.1"/><path d="M178.5 33.3 Q200.2 45.8 196.8 67.3"/><path d="M178.5 33.3 Q180.0 8.3 160.2 -0.8"/><path d="M200.5 22.3 Q214.4 31.5 211.3 45.6"/><path d="M200.5 22.3 Q202.5 5.8 189.7 -1.0"/><path d="M223.6 12.4 Q227.8 15.6 226.6 20.0"/><path d="M223.6 12.4 Q224.6 7.3 220.7 4.9"/></svg>
+  <div class="wrap">
+    <p class="label">FIND US</p>
+    <h2>Visit</h2>
+    <div class="facts" style="margin-top:3rem">
+      <div class="fact"><h3>WHERE</h3>
+        <p>1 South Clinton Ave.<br>Suite C500<br>Rochester, NY 14604<br><br>Inside The Metropolitan Building</p></div>
+      <div class="fact"><h3>HOURS</h3>
+        <p>EDIT ME<br>e.g. Tue&ndash;Fri 10&ndash;7<br>Sat 9&ndash;5<br>Sun &amp; Mon closed</p></div>
+      <div class="fact"><h3>GET IN TOUCH</h3>
+        <p><a href="tel:+15853974588">585-397-4588</a><br><a href="mailto:EDIT-ME@YOURDOMAIN.com">EDIT ME &mdash; email</a></p></div>
+      <div class="fact"><h3>FOLLOW</h3>
+        <p><a href="#">EDIT ME &mdash; Instagram</a></p></div>
+    </div>
+  </div>
+</section>
+
+</main>
+
+<footer class="foot">
+  <div class="wrap foot-in">
+    <span>&copy; <span id="yr">2026</span> Curl Power &middot; The Curl Experts</span>
+    <span><a href="#book">Book</a> &middot; <a href="tel:+15853974588">585-397-4588</a></span>
+  </div>
+</footer>
+
+<script src="https://embed.acuityscheduling.com/js/embed.js" type="text/javascript"></script>
+<script>document.getElementById('yr').textContent=new Date().getFullYear();</script>
+</body>
+</html>

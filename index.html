@@ -5,10 +5,18 @@
   Palette from the Crown Oasis brand board, with deeper shades of the same
   green used as grounds so the gold reads as metal rather than flat yellow.
 
-  STILL TO FILL IN — search for "EDIT ME":
-    1. YOURDOMAIN.com in the <head>   2. Opening hours   3. Email
-    4. Instagram   5. Your name in the portrait alt text
-    6. Two About paragraphs           7. Three client photos
+  OPTIONAL, WHENEVER YOU GET TO IT (each is marked with a comment in place):
+    1. canonical + og:url tags, once the domain resolves
+    2. your name in the portrait alt text
+    3. an email address, in the Visit section
+    4. an Instagram handle, in the Visit section
+    5. fixed opening hours, if you'd rather publish them than "by appointment"
+    6. sharper versions of work-1.jpg / work-2.jpg, and a work-3.jpg
+    7. the five data-type IDs on the services list, to deep-link each service
+
+  Nothing above is a placeholder showing on the page. The site reads as
+  finished as it stands.
+
   Assets: logo.png · mark.png · owner.jpg
   ===========================================================================
 -->
@@ -19,11 +27,14 @@
 <meta name="color-scheme" content="light">
 <title>Curl Power — The Curl Experts | Curly Hair Salon in Rochester, NY</title>
 <meta name="description" content="Personalized haircare and education for every texture, age and culture. Curl cuts, haircuts, color, blowouts and event styling in downtown Rochester, NY.">
-<link rel="canonical" href="https://YOURDOMAIN.com/">
+<!-- Once your domain resolves, add these two back with the real address:
+     <link rel="canonical" href="https://yourdomain.com/">
+     <meta property="og:url" content="https://yourdomain.com/">
+     A canonical tag pointing at a domain that doesn't exist is worse for
+     search than having none, which is why they're out for now. -->
 <meta property="og:type" content="website">
 <meta property="og:title" content="Curl Power — The Curl Experts">
 <meta property="og:description" content="Personalized haircare and education for every texture, age and culture. Downtown Rochester, NY.">
-<meta property="og:url" content="https://YOURDOMAIN.com/">
 <link rel="icon" href="mark.png">
 <link rel="apple-touch-icon" href="mark.png">
 <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -211,7 +222,7 @@ p{margin:0 0 1rem}
 .about-grid p:not(.pull):not(.label){color:rgba(248,246,242,.78)}
 
 /* gallery */
-.gal{display:grid;grid-template-columns:repeat(auto-fit,minmax(15rem,1fr));gap:1.4rem}
+.gal{display:grid;grid-template-columns:repeat(auto-fit,minmax(15rem,1fr));gap:1.4rem;max-width:52rem}
 .gal img{aspect-ratio:1;object-fit:cover;border-radius:2px;width:100%}
 .slot{aspect-ratio:1;border-radius:2px;background:var(--sand);
   border:1px solid rgba(207,175,110,.7);display:grid;place-items:center;text-align:center;padding:1.5rem}
@@ -290,16 +301,22 @@ p{margin:0 0 1rem}
     <h2>Services</h2>
     <p class="lede">Curls, coils, waves and everything in between &mdash; plus the teaching, so you can do it again at home.</p>
     <ul class="svc">
-      <li><a href="#book"><span class="dot"></span>Curl Cuts<span class="go">BOOK</span></a></li>
-      <li><a href="#book"><span class="dot"></span>Haircuts<span class="go">BOOK</span></a></li>
-      <li><a href="#book"><span class="dot"></span>Hair Coloring<span class="go">BOOK</span></a></li>
-      <li><a href="#book"><span class="dot"></span>Blowouts<span class="go">BOOK</span></a></li>
-      <li><a href="#book"><span class="dot"></span>Event Styling + More<span class="go">BOOK</span></a></li>
+      <li><a href="#book" data-type="REPLACE"><span class="dot"></span>Curl Cuts<span class="go">BOOK</span></a></li>
+      <li><a href="#book" data-type="REPLACE"><span class="dot"></span>Haircuts<span class="go">BOOK</span></a></li>
+      <li><a href="#book" data-type="REPLACE"><span class="dot"></span>Hair Coloring<span class="go">BOOK</span></a></li>
+      <li><a href="#book" data-type="REPLACE"><span class="dot"></span>Blowouts<span class="go">BOOK</span></a></li>
+      <li><a href="#book" data-type="REPLACE"><span class="dot"></span>Event Styling + More<span class="go">BOOK</span></a></li>
     </ul>
-    <!-- STREAMLINED BOOKING: each row jumps to the calendar below. To send a
-         service straight to its own Acuity page instead, open Acuity, go to
-         Appointment Types, click a service, copy its "Direct scheduling link"
-         and replace that row's href="#book" with it. -->
+    <!-- DEEP-LINKED BOOKING
+         Each row can drop the visitor straight onto its own service, skipping
+         Acuity's "Select Appointment" step entirely.
+
+         In Acuity: Appointment Types -> click a service -> Direct Scheduling
+         Link. The long number in that link is its Appointment Type ID. Paste
+         it over REPLACE in the matching row's data-type below.
+
+         Rows still set to REPLACE just scroll to the calendar, so the page
+         works fine before you fill these in. -->
     <p class="svc-note">Tap any service to book it. Pricing and appointment length are shown on the calendar.</p>
   </div>
 </section>
@@ -308,11 +325,14 @@ p{margin:0 0 1rem}
   <div class="wrap">
     <p class="label">THE WORK</p>
     <h2>Recent clients</h2>
-    <p class="lede">EDIT ME &mdash; these two came out of your flyer, so they're low resolution. Replace them with the originals from your phone (square, about 1000px) and swap the third panel for another: &lt;img src="work-3.jpg" alt="Curl cut"&gt;</p>
+    <p class="lede">Cut, shaped and styled in the chair.</p>
+    <!-- These two were extracted from your flyer, so they're soft. Replace with
+         the originals from your phone (square, ~1000px, same filenames).
+         To add a third, upload work-3.jpg and copy one of the <img> lines. -->
     <div class="gal">
       <img src="work-1.jpg" alt="Tapered curl cut, shaped and defined" width="500" height="500" loading="lazy">
       <img src="work-2.jpg" alt="Long layered curls, cut dry for shape" width="500" height="500" loading="lazy">
-      <div class="slot"><div><svg viewBox="0 0 48 48" aria-hidden="true"><ellipse cx="24" cy="15" rx="7" ry="10.5" transform="rotate(0 24 24)"/><ellipse cx="24" cy="15" rx="7" ry="10.5" transform="rotate(72 24 24)"/><ellipse cx="24" cy="15" rx="7" ry="10.5" transform="rotate(144 24 24)"/><ellipse cx="24" cy="15" rx="7" ry="10.5" transform="rotate(216 24 24)"/><ellipse cx="24" cy="15" rx="7" ry="10.5" transform="rotate(288 24 24)"/><circle cx="24" cy="24" r="3"/></svg><p>PHOTO 3</p></div></div>
+      
     </div>
   </div>
 </section>
@@ -321,16 +341,19 @@ p{margin:0 0 1rem}
   <svg class="leaf leaf-br" viewBox="0 0 250 250" aria-hidden="true"><path d="M10 230 Q70 70 230 10"/><path d="M20.2 205.0 Q27.3 204.1 30.2 209.5"/><path d="M20.2 205.0 Q16.3 199.2 10.2 200.6"/><path d="M31.0 182.8 Q48.8 181.5 55.5 195.6"/><path d="M31.0 182.8 Q21.9 167.4 6.5 170.0"/><path d="M42.9 161.7 Q68.9 161.5 77.3 182.5"/><path d="M42.9 161.7 Q31.1 138.6 8.5 140.9"/><path d="M55.9 141.7 Q88.1 143.5 96.7 170.2"/><path d="M55.9 141.7 Q43.1 112.1 15.1 113.2"/><path d="M70.0 122.8 Q106.4 127.3 114.2 158.3"/><path d="M70.0 122.8 Q57.8 88.3 25.9 87.3"/><path d="M85.3 105.1 Q123.9 112.6 130.0 146.3"/><path d="M85.3 105.1 Q74.7 67.3 40.6 63.9"/><path d="M101.7 88.5 Q140.4 98.8 144.3 133.5"/><path d="M101.7 88.5 Q93.6 49.2 59.1 43.5"/><path d="M119.2 73.0 Q156.2 85.5 157.6 119.6"/><path d="M119.2 73.0 Q113.9 34.3 80.8 26.4"/><path d="M137.8 58.6 Q171.2 72.5 170.5 104.0"/><path d="M137.8 58.6 Q135.3 22.6 105.2 13.2"/><path d="M157.6 45.4 Q185.8 59.4 183.4 86.7"/><path d="M157.6 45.4 Q157.5 13.9 131.8 4.1"/><path d="M178.5 33.3 Q200.2 45.8 196.8 67.3"/><path d="M178.5 33.3 Q180.0 8.3 160.2 -0.8"/><path d="M200.5 22.3 Q214.4 31.5 211.3 45.6"/><path d="M200.5 22.3 Q202.5 5.8 189.7 -1.0"/><path d="M223.6 12.4 Q227.8 15.6 226.6 20.0"/><path d="M223.6 12.4 Q224.6 7.3 220.7 4.9"/></svg>
   <div class="wrap about-grid">
     <figure class="portrait">
-      <!-- EDIT ME: put your name in this alt text — it matters for search and screen readers -->
-      <img src="owner.jpg" alt="EDIT ME — your name, founder of Curl Power" width="1000" height="1250">
+      <!-- Add your name here when you can: alt="Jane Doe, founder of Curl Power".
+           Search engines and screen readers both use it. -->
+      <img src="owner.jpg" alt="The founder of Curl Power, outdoors" width="1000" height="1250">
     </figure>
     <div>
       <p class="label">ABOUT</p>
       <p class="pull">Personalized haircare and education for every texture, age and culture.</p>
-      <!-- EDIT ME: your own story — who you are, how long you've worked with
-           textured hair, and what a first visit is actually like. -->
-      <p>EDIT ME &mdash; a short paragraph about Curl Power. Who you are, how long you've been working with textured hair, and what someone can expect on a first visit.</p>
-      <p>EDIT ME &mdash; a second paragraph on the education side: what clients leave knowing, and what you send them home with.</p>
+      <!-- Written from your flyer only. It states nothing I couldn't verify —
+           no years of experience, no certifications, no technique claims.
+           Rewrite it in your own voice when you have a minute; that will
+           always beat anything written for you. -->
+      <p>Curl Power is a curl-specialist studio in downtown Rochester, tucked inside The Metropolitan Building on South Clinton Avenue. Curl cuts, haircuts, colour, blowouts and event styling &mdash; for wavy, curly and coily hair.</p>
+      <p>The education half of that isn't an extra. What suits your pattern, how to section it, how to keep it on day three &mdash; that knowledge is what makes a cut last once you're home with it.</p>
       <a class="btn btn-gold" href="#book" style="margin-top:.6rem">Book a visit</a>
     </div>
   </div>
@@ -343,7 +366,7 @@ p{margin:0 0 1rem}
     <p class="lede">Pick a service and a time below. You'll get a confirmation straight away, and a reminder before your visit.</p>
     <div class="shell">
       <!-- ========= ACUITY BOOKING EMBED — do not change the src ========= -->
-      <iframe
+      <iframe id="sched"
         src="https://app.acuityscheduling.com/schedule.php?owner=29866814"
         title="Schedule an appointment with Curl Power"
         width="100%" height="800" frameborder="0" allow="payment"></iframe>
@@ -362,11 +385,18 @@ p{margin:0 0 1rem}
       <div class="fact"><h3>WHERE</h3>
         <p>1 South Clinton Ave.<br>Suite C500<br>Rochester, NY 14604<br><br>Inside The Metropolitan Building</p></div>
       <div class="fact"><h3>HOURS</h3>
-        <p>EDIT ME<br>e.g. Tue&ndash;Fri 10&ndash;7<br>Sat 9&ndash;5<br>Sun &amp; Mon closed</p></div>
+        <!-- Swap for fixed opening hours if you'd rather publish them. Until
+             then this is accurate and never goes out of date, because the
+             calendar is the real source of truth. -->
+        <p>By appointment.<br>Live availability is on <a href="#book">the calendar</a>.</p></div>
       <div class="fact"><h3>GET IN TOUCH</h3>
-        <p><a href="tel:+15853974588">585-397-4588</a><br><a href="mailto:EDIT-ME@YOURDOMAIN.com">EDIT ME &mdash; email</a></p></div>
-      <div class="fact"><h3>FOLLOW</h3>
-        <p><a href="#">EDIT ME &mdash; Instagram</a></p></div>
+        <!-- Add an email when you have one you're happy to publish:
+             <a href="mailto:hello@yourdomain.com">hello@yourdomain.com</a> -->
+        <p><a href="tel:+15853974588">585-397-4588</a><br>Call or text</p></div>
+      <div class="fact"><h3>APPOINTMENTS</h3>
+        <!-- Replace with Instagram once you have the handle:
+             <h3>FOLLOW</h3><p><a href="https://instagram.com/yourhandle">@yourhandle</a></p> -->
+        <p><a href="#book">Book online</a>, any hour.</p></div>
     </div>
   </div>
 </section>
@@ -381,6 +411,26 @@ p{margin:0 0 1rem}
 </footer>
 
 <script src="https://embed.acuityscheduling.com/js/embed.js" type="text/javascript"></script>
+<script>
+/* Deep-link a service into the embedded calendar (see the comment above the
+   services list). Rows whose data-type is not numeric fall back to a plain
+   scroll, so nothing breaks while the IDs are still placeholders. */
+(function(){
+  var base = 'https://app.acuityscheduling.com/schedule.php?owner=29866814';
+  var frame = document.getElementById('sched');
+  var book  = document.getElementById('book');
+  if (!frame || !book) return;
+  document.querySelectorAll('.svc a[data-type]').forEach(function(a){
+    a.addEventListener('click', function(e){
+      var id = a.getAttribute('data-type');
+      if (!/^\d+$/.test(id)) return;
+      e.preventDefault();
+      frame.src = base + '&appointmentType=' + encodeURIComponent(id);
+      book.scrollIntoView({behavior:'smooth'});
+    });
+  });
+})();
+</script>
 <script>document.getElementById('yr').textContent=new Date().getFullYear();</script>
 </body>
 </html>

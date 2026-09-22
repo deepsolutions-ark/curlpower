@@ -19,11 +19,11 @@
 <meta name="color-scheme" content="light">
 <title>Curl Power — The Curl Experts | Curly Hair Salon in Rochester, NY</title>
 <meta name="description" content="Personalized haircare and education for every texture, age and culture. Curl cuts, haircuts, color, blowouts and event styling in downtown Rochester, NY.">
-<link rel="canonical" href="https://curlpower.com/">
+<link rel="canonical" href="https://YOURDOMAIN.com/">
 <meta property="og:type" content="website">
 <meta property="og:title" content="Curl Power — The Curl Experts">
 <meta property="og:description" content="Personalized haircare and education for every texture, age and culture. Downtown Rochester, NY.">
-<meta property="og:url" content="https://curlpower.com/">
+<meta property="og:url" content="https://YOURDOMAIN.com/">
 <link rel="icon" href="mark.png">
 <link rel="apple-touch-icon" href="mark.png">
 <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -44,6 +44,7 @@
   --coral-text:#B85046;
   --coral-on-sand:#A1463D;
   --sand:#EBDCCB;
+  --blush:#F7E4DD;
   --paper:#F8F6F2;
   --ink:#332C24;
   --muted:#7A6E62;
@@ -115,7 +116,8 @@ p{margin:0 0 1rem}
 /* hero */
 .hero{position:relative;overflow:hidden;color:var(--paper);padding-block:clamp(3.2rem,7vw,5.5rem);
   background:
-    radial-gradient(56% 48% at 74% 40%,rgba(244,185,66,.14),transparent 68%),
+    radial-gradient(52% 44% at 74% 38%,rgba(244,185,66,.15),transparent 66%),
+    radial-gradient(64% 58% at 22% 82%,rgba(255,111,97,.16),transparent 70%),
     radial-gradient(90% 90% at 50% 0%,#24493C 0%,var(--green) 42%,#143026 100%)}
 .hero-grid{display:grid;grid-template-columns:1.02fr .98fr;gap:clamp(1.5rem,5vw,4rem);align-items:center}
 @media(max-width:920px){.hero-grid{grid-template-columns:1fr;text-align:center}}
@@ -130,7 +132,13 @@ p{margin:0 0 1rem}
 .stage{position:absolute;width:min(104%,32rem);aspect-ratio:1;z-index:1}
 .stage circle,.stage path{fill:none}
 .stage .ring{stroke:var(--gold-muted);stroke-dasharray:1;stroke-dashoffset:1}
-.stage .curl path{stroke:var(--gold);stroke-width:2.4;stroke-linecap:round;opacity:.9}
+.stage .petal{fill:url(#pet);stroke:#C7442F;stroke-width:.8;stroke-opacity:.3;
+  transform-box:fill-box;transform-origin:50% 100%}
+.stage .burst line{stroke:#FFE9E2;stroke-width:1.6;stroke-linecap:round;opacity:.75}
+.stage .stamen path{stroke:var(--gold);stroke-width:2.6;stroke-linecap:round;fill:none}
+.stage .stamen circle{fill:var(--gold)}
+.stage .stamen .tip{fill:#FFF3D6}
+.stage .frond path{stroke:var(--gold-muted);stroke-width:2.6;stroke-linecap:round;fill:none;opacity:.85}
 .hero-logo{width:min(56%,16.5rem);position:relative;z-index:2;
   filter:drop-shadow(0 10px 30px rgba(0,0,0,.35))}
 
@@ -139,8 +147,13 @@ p{margin:0 0 1rem}
 @keyframes rise{from{opacity:0;transform:translateY(16px)}to{opacity:1;transform:none}}
 @keyframes bloom{from{opacity:0;transform:scale(.93)}to{opacity:1;transform:none}}
 .stage .ring{animation:draw 1.5s cubic-bezier(.33,.9,.36,1) both}
-.stage .curl path{stroke-dasharray:1;stroke-dashoffset:1;
-  animation:draw 1.15s cubic-bezier(.33,.9,.36,1) both;animation-delay:inherit}
+.stage .frond path{stroke-dasharray:1;stroke-dashoffset:1;
+  animation:draw .85s cubic-bezier(.33,.9,.36,1) both;animation-delay:inherit}
+.stage .petal{animation:petal .75s cubic-bezier(.18,.9,.28,1) both;animation-delay:inherit}
+.stage .burst,.stage .stamen{animation:fade .7s ease-out both;animation-delay:inherit}
+.stage .stamen .stalk{stroke-dasharray:1;stroke-dashoffset:1;animation:draw .7s ease-out both;animation-delay:inherit}
+@keyframes petal{from{transform:scale(.08) rotate(-16deg)}to{transform:scale(1) rotate(0)}}
+@keyframes fade{from{opacity:0}to{opacity:1}}
 .hero-logo{animation:bloom .95s cubic-bezier(.2,.7,.3,1) .05s both}
 .hero .label{animation:rise .8s ease-out .15s both}
 .hero h1{animation:rise .9s cubic-bezier(.2,.7,.3,1) .28s both}
@@ -149,7 +162,9 @@ p{margin:0 0 1rem}
 .hero-cta{animation:rise .9s ease-out .64s both}
 @media(prefers-reduced-motion:reduce){
   html{scroll-behavior:auto}
-  .stage .ring,.stage .curl path{animation:none;stroke-dashoffset:0}
+  .stage .ring,.stage .frond path,.stage .stamen .stalk{animation:none;stroke-dashoffset:0}
+  .stage .petal{animation:none;transform:none}
+  .stage .burst,.stage .stamen{animation:none;opacity:1}
   .hero-logo,.hero .label,.hero h1,.hero .sub,.hero .loc,.hero-cta{animation:none}
   .btn{transition:none}
 }
@@ -157,18 +172,30 @@ p{margin:0 0 1rem}
 /* bands */
 .band{position:relative;overflow:hidden;padding-block:clamp(3.5rem,8vw,6rem)}
 .band-sand{background:var(--sand)}
+.band-blush{background:var(--blush)}
+.band-blush .label{color:var(--coral-on-sand)}
+.band-blush .lede,.band-sand .lede{color:#6A5E52}
 .band-green{background:var(--green-mid);color:var(--paper)}
 .band-deep{background:var(--green-800);color:var(--paper)}
-.band h2{font-size:clamp(2.3rem,5.6vw,3.6rem);font-weight:300;margin-bottom:.8rem}
+.band h2{font-size:clamp(2.3rem,5.6vw,3.6rem);font-weight:300;margin-bottom:1.1rem;position:relative}
+.band h2::after{content:"";display:block;width:3.4rem;height:2px;margin-top:1.1rem;background:linear-gradient(90deg,var(--coral),rgba(255,111,97,0))}
+.on-dark h2::after{background:linear-gradient(90deg,var(--gold),rgba(244,185,66,0))}
 .band .lede{color:var(--muted);max-width:36rem;margin-bottom:3.2rem}
 .on-dark .lede{color:rgba(248,246,242,.72)}
 
 /* services */
 .svc{display:grid;grid-template-columns:repeat(auto-fit,minmax(17rem,1fr));gap:0 4rem;list-style:none;margin:0;padding:0}
-.svc li{display:flex;align-items:baseline;gap:1rem;padding-block:1.35rem;
-  border-bottom:1px solid rgba(207,175,110,.45);
-  font-family:var(--display);font-size:clamp(1.35rem,2.7vw,1.7rem);font-weight:400;color:var(--green-mid)}
-.dot{flex:none;width:.42rem;height:.42rem;border-radius:50%;background:var(--coral);transform:translateY(-.25rem)}
+.svc li{border-bottom:1px solid rgba(207,175,110,.45)}
+.svc a{display:flex;align-items:baseline;gap:1rem;padding-block:1.35rem;text-decoration:none;
+  font-family:var(--display);font-size:clamp(1.35rem,2.7vw,1.7rem);font-weight:400;color:var(--green-mid);
+  transition:color .18s}
+.svc a:hover{color:var(--coral-text)}
+.dot{flex:none;width:.42rem;height:.42rem;border-radius:50%;background:var(--coral);transform:translateY(-.25rem);
+  transition:transform .18s}
+.svc a:hover .dot{transform:translateY(-.25rem) scale(1.5)}
+.go{margin-left:auto;font-family:var(--body);font-size:.68rem;letter-spacing:.2em;color:var(--coral-text);
+  opacity:.55;transition:opacity .18s;white-space:nowrap}
+.svc a:hover .go{opacity:1}
 .svc-note{margin:2.8rem 0 0;color:var(--muted);font-size:.94rem}
 
 /* about */
@@ -185,14 +212,15 @@ p{margin:0 0 1rem}
 
 /* gallery */
 .gal{display:grid;grid-template-columns:repeat(auto-fit,minmax(15rem,1fr));gap:1.4rem}
-.gal img{aspect-ratio:4/5;object-fit:cover;border-radius:2px;width:100%}
-.slot{aspect-ratio:4/5;border-radius:2px;background:var(--sand);
+.gal img{aspect-ratio:1;object-fit:cover;border-radius:2px;width:100%}
+.slot{aspect-ratio:1;border-radius:2px;background:var(--sand);
   border:1px solid rgba(207,175,110,.7);display:grid;place-items:center;text-align:center;padding:1.5rem}
 .slot svg{width:2.6rem;height:2.6rem;margin:0 auto .9rem;fill:none;stroke:var(--gold-muted);stroke-width:1.1}
 .slot p{margin:0;font-size:.72rem;letter-spacing:.22em;color:#8A7A66}
 
 /* booking */
 .shell{background:#fff;border-radius:3px;overflow:hidden;border:1px solid rgba(207,175,110,.55);
+  border-top:3px solid var(--coral);
   box-shadow:0 26px 60px -34px rgba(15,36,28,.55);min-height:760px}
 .shell iframe{display:block;width:100%;border:0;min-height:760px}
 .fallback{margin-top:1.3rem;color:#6E6255;font-size:.9rem}
@@ -243,10 +271,13 @@ p{margin:0 0 1rem}
     </div>
     <div class="hero-art">
       <svg class="stage" viewBox="0 0 520 520" aria-hidden="true">
+        <defs><linearGradient id="pet" x1=".5" y1="1" x2=".5" y2="0">
+          <stop offset="0" stop-color="#D94E3C"/><stop offset=".55" stop-color="#FF6F61"/>
+          <stop offset="1" stop-color="#FF9E8E"/></linearGradient></defs>
         <circle class="ring" pathLength="1" cx="260" cy="260" r="246" stroke-width="1" opacity=".45" style="animation-delay:.1s"/>
         <circle class="ring" pathLength="1" cx="260" cy="260" r="232" stroke-width="1.8" opacity=".8" style="animation-delay:.2s"/>
         <circle class="ring" pathLength="1" cx="260" cy="260" r="206" stroke-width=".8" opacity=".3" style="animation-delay:.3s"/>
-        <g class="curl"><g transform="translate(368.9 464.8) rotate(152) scale(1.00)" style="animation-delay:0.30s"><path pathLength="1" d="M30.0 0.0A25.8 25.8 0 0 1 -21.6 0.0A18.6 18.6 0 0 1 15.6 0.0A13.4 13.4 0 0 1 -11.2 0.0A9.6 9.6 0 0 1 8.1 0.0A6.9 6.9 0 0 1 -5.8 0.0"/></g><g transform="translate(151.1 464.8) rotate(208) scale(0.74)" style="animation-delay:0.39s"><path pathLength="1" d="M30.0 0.0A25.8 25.8 0 0 -1 -21.6 0.0A18.6 18.6 0 0 -1 15.6 0.0A13.4 13.4 0 0 -1 -11.2 0.0A9.6 9.6 0 0 -1 8.1 0.0A6.9 6.9 0 0 -1 -5.8 0.0"/></g><g transform="translate(33.1 308.2) rotate(258) scale(0.92)" style="animation-delay:0.47s"><path pathLength="1" d="M30.0 0.0A25.8 25.8 0 0 1 -21.6 0.0A18.6 18.6 0 0 1 15.6 0.0A13.4 13.4 0 0 1 -11.2 0.0A9.6 9.6 0 0 1 8.1 0.0A6.9 6.9 0 0 1 -5.8 0.0"/></g><g transform="translate(117.2 77.2) rotate(322) scale(0.66)" style="animation-delay:0.56s"><path pathLength="1" d="M30.0 0.0A25.8 25.8 0 0 -1 -21.6 0.0A18.6 18.6 0 0 -1 15.6 0.0A13.4 13.4 0 0 -1 -11.2 0.0A9.6 9.6 0 0 -1 8.1 0.0A6.9 6.9 0 0 -1 -5.8 0.0"/></g><g transform="translate(346.9 44.9) rotate(382) scale(1.02)" style="animation-delay:0.64s"><path pathLength="1" d="M30.0 0.0A25.8 25.8 0 0 1 -21.6 0.0A18.6 18.6 0 0 1 15.6 0.0A13.4 13.4 0 0 1 -11.2 0.0A9.6 9.6 0 0 1 8.1 0.0A6.9 6.9 0 0 1 -5.8 0.0"/></g><g transform="translate(483.0 196.1) rotate(434) scale(0.78)" style="animation-delay:0.72s"><path pathLength="1" d="M30.0 0.0A25.8 25.8 0 0 -1 -21.6 0.0A18.6 18.6 0 0 -1 15.6 0.0A13.4 13.4 0 0 -1 -11.2 0.0A9.6 9.6 0 0 -1 8.1 0.0A6.9 6.9 0 0 -1 -5.8 0.0"/></g><g transform="translate(480.6 331.7) rotate(108) scale(0.70)" style="animation-delay:0.81s"><path pathLength="1" d="M30.0 0.0A25.8 25.8 0 0 1 -21.6 0.0A18.6 18.6 0 0 1 15.6 0.0A13.4 13.4 0 0 1 -11.2 0.0A9.6 9.6 0 0 1 8.1 0.0A6.9 6.9 0 0 1 -5.8 0.0"/></g><g transform="translate(49.7 162.0) rotate(295) scale(0.58)" style="animation-delay:0.89s"><path pathLength="1" d="M30.0 0.0A25.8 25.8 0 0 -1 -21.6 0.0A18.6 18.6 0 0 -1 15.6 0.0A13.4 13.4 0 0 -1 -11.2 0.0A9.6 9.6 0 0 -1 8.1 0.0A6.9 6.9 0 0 -1 -5.8 0.0"/></g><g transform="translate(282.8 521.0) rotate(175)" style="animation-delay:0.98s"><path pathLength="1" d="M0.0 0.0C38.5 -22.7 31.5 -51.3 70.0 -62.1"/></g><g transform="translate(205.5 3.7) rotate(348)" style="animation-delay:1.05s"><path pathLength="1" d="M0.0 0.0C35.2 20.2 28.8 45.6 64.0 55.2"/></g><g transform="translate(33.1 391.0) rotate(240)" style="animation-delay:1.13s"><path pathLength="1" d="M0.0 0.0C31.9 -18.5 26.1 -41.8 58.0 -50.6"/></g><g transform="translate(486.9 129.0) rotate(420)" style="animation-delay:1.20s"><path pathLength="1" d="M0.0 0.0C28.6 16.8 23.4 38.0 52.0 46.0"/></g></g>
+        <g class="bloom" transform="translate(96 424) rotate(18) scale(.62)"><g transform="rotate(0)"><path class="petal" style="animation-delay:0.55s" d="M0 0C-30-12-46-40-40-66C-36-82-18-88-4-80C-1-78 1-78 4-80C18-88 36-82 40-66C46-40 30-12 0 0Z"/></g><g transform="rotate(72)"><path class="petal" style="animation-delay:0.64s" d="M0 0C-30-12-46-40-40-66C-36-82-18-88-4-80C-1-78 1-78 4-80C18-88 36-82 40-66C46-40 30-12 0 0Z"/></g><g transform="rotate(144)"><path class="petal" style="animation-delay:0.73s" d="M0 0C-30-12-46-40-40-66C-36-82-18-88-4-80C-1-78 1-78 4-80C18-88 36-82 40-66C46-40 30-12 0 0Z"/></g><g transform="rotate(216)"><path class="petal" style="animation-delay:0.82s" d="M0 0C-30-12-46-40-40-66C-36-82-18-88-4-80C-1-78 1-78 4-80C18-88 36-82 40-66C46-40 30-12 0 0Z"/></g><g transform="rotate(288)"><path class="petal" style="animation-delay:0.91s" d="M0 0C-30-12-46-40-40-66C-36-82-18-88-4-80C-1-78 1-78 4-80C18-88 36-82 40-66C46-40 30-12 0 0Z"/></g><g class="burst" style="animation-delay:1.03s"><line x1="4.0" y1="0.0" x2="21.0" y2="0.0"/><line x1="3.6" y1="1.8" x2="18.9" y2="9.2"/><line x1="2.5" y1="3.2" x2="12.9" y2="16.5"/><line x1="0.8" y1="3.9" x2="4.4" y2="20.5"/><line x1="-1.0" y1="3.9" x2="-5.1" y2="20.4"/><line x1="-2.6" y1="3.1" x2="-13.5" y2="16.1"/><line x1="-3.7" y1="1.6" x2="-19.2" y2="8.5"/><line x1="-4.0" y1="-0.1" x2="-21.0" y2="-0.7"/><line x1="-3.5" y1="-1.9" x2="-18.5" y2="-9.9"/><line x1="-2.4" y1="-3.2" x2="-12.3" y2="-17.0"/><line x1="-0.7" y1="-3.9" x2="-3.6" y2="-20.7"/><line x1="1.1" y1="-3.8" x2="5.8" y2="-20.2"/><line x1="2.7" y1="-3.0" x2="14.1" y2="-15.6"/><line x1="3.7" y1="-1.5" x2="19.5" y2="-7.9"/></g><g class="stamen" style="animation-delay:1.07s"><path class="stalk" pathLength="1" d="M0 -4C12 -28 30 -48 46 -60"/><circle cx="30" cy="-42" r="2.4"/><circle cx="36" cy="-49" r="2.4"/><circle cx="42" cy="-55" r="2.4"/><circle cx="25" cy="-48" r="2.4"/><circle cx="33" cy="-55" r="2.4"/><circle class="tip" cx="47" cy="-62" r="4.2"/></g></g><g class="frond" transform="translate(424 424) rotate(-52) scale(.5) translate(-125 -125)"><path pathLength="1" style="animation-delay:0.45s" d="M10 230 Q70 70 230 10"/><path pathLength="1" style="animation-delay:0.47s" d="M20.2 205.0 Q27.3 204.1 30.2 209.5"/><path pathLength="1" style="animation-delay:0.49s" d="M20.2 205.0 Q16.3 199.2 10.2 200.6"/><path pathLength="1" style="animation-delay:0.52s" d="M31.0 182.8 Q48.8 181.5 55.5 195.6"/><path pathLength="1" style="animation-delay:0.54s" d="M31.0 182.8 Q21.9 167.4 6.5 170.0"/><path pathLength="1" style="animation-delay:0.56s" d="M42.9 161.7 Q68.9 161.5 77.3 182.5"/><path pathLength="1" style="animation-delay:0.58s" d="M42.9 161.7 Q31.1 138.6 8.5 140.9"/><path pathLength="1" style="animation-delay:0.60s" d="M55.9 141.7 Q88.1 143.5 96.7 170.2"/><path pathLength="1" style="animation-delay:0.63s" d="M55.9 141.7 Q43.1 112.1 15.1 113.2"/><path pathLength="1" style="animation-delay:0.65s" d="M70.0 122.8 Q106.4 127.3 114.2 158.3"/><path pathLength="1" style="animation-delay:0.67s" d="M70.0 122.8 Q57.8 88.3 25.9 87.3"/><path pathLength="1" style="animation-delay:0.69s" d="M85.3 105.1 Q123.9 112.6 130.0 146.3"/><path pathLength="1" style="animation-delay:0.71s" d="M85.3 105.1 Q74.7 67.3 40.6 63.9"/><path pathLength="1" style="animation-delay:0.74s" d="M101.7 88.5 Q140.4 98.8 144.3 133.5"/><path pathLength="1" style="animation-delay:0.76s" d="M101.7 88.5 Q93.6 49.2 59.1 43.5"/><path pathLength="1" style="animation-delay:0.78s" d="M119.2 73.0 Q156.2 85.5 157.6 119.6"/><path pathLength="1" style="animation-delay:0.80s" d="M119.2 73.0 Q113.9 34.3 80.8 26.4"/><path pathLength="1" style="animation-delay:0.82s" d="M137.8 58.6 Q171.2 72.5 170.5 104.0"/><path pathLength="1" style="animation-delay:0.85s" d="M137.8 58.6 Q135.3 22.6 105.2 13.2"/><path pathLength="1" style="animation-delay:0.87s" d="M157.6 45.4 Q185.8 59.4 183.4 86.7"/><path pathLength="1" style="animation-delay:0.89s" d="M157.6 45.4 Q157.5 13.9 131.8 4.1"/><path pathLength="1" style="animation-delay:0.91s" d="M178.5 33.3 Q200.2 45.8 196.8 67.3"/><path pathLength="1" style="animation-delay:0.93s" d="M178.5 33.3 Q180.0 8.3 160.2 -0.8"/><path pathLength="1" style="animation-delay:0.96s" d="M200.5 22.3 Q214.4 31.5 211.3 45.6"/><path pathLength="1" style="animation-delay:0.98s" d="M200.5 22.3 Q202.5 5.8 189.7 -1.0"/><path pathLength="1" style="animation-delay:1.00s" d="M223.6 12.4 Q227.8 15.6 226.6 20.0"/><path pathLength="1" style="animation-delay:1.02s" d="M223.6 12.4 Q224.6 7.3 220.7 4.9"/></g>
       </svg>
       <img class="hero-logo" src="logo.png" alt="Curl Power — The Curl Experts" width="700" height="700">
     </div>
@@ -259,13 +290,30 @@ p{margin:0 0 1rem}
     <h2>Services</h2>
     <p class="lede">Curls, coils, waves and everything in between &mdash; plus the teaching, so you can do it again at home.</p>
     <ul class="svc">
-      <li><span class="dot"></span>Curl Cuts</li>
-      <li><span class="dot"></span>Haircuts</li>
-      <li><span class="dot"></span>Hair Coloring</li>
-      <li><span class="dot"></span>Blowouts</li>
-      <li><span class="dot"></span>Event Styling + More</li>
+      <li><a href="#book"><span class="dot"></span>Curl Cuts<span class="go">BOOK</span></a></li>
+      <li><a href="#book"><span class="dot"></span>Haircuts<span class="go">BOOK</span></a></li>
+      <li><a href="#book"><span class="dot"></span>Hair Coloring<span class="go">BOOK</span></a></li>
+      <li><a href="#book"><span class="dot"></span>Blowouts<span class="go">BOOK</span></a></li>
+      <li><a href="#book"><span class="dot"></span>Event Styling + More<span class="go">BOOK</span></a></li>
     </ul>
-    <p class="svc-note">Pricing and appointment length are shown for each service when you book.</p>
+    <!-- STREAMLINED BOOKING: each row jumps to the calendar below. To send a
+         service straight to its own Acuity page instead, open Acuity, go to
+         Appointment Types, click a service, copy its "Direct scheduling link"
+         and replace that row's href="#book" with it. -->
+    <p class="svc-note">Tap any service to book it. Pricing and appointment length are shown on the calendar.</p>
+  </div>
+</section>
+
+<section class="band band-blush">
+  <div class="wrap">
+    <p class="label">THE WORK</p>
+    <h2>Recent clients</h2>
+    <p class="lede">EDIT ME &mdash; these two came out of your flyer, so they're low resolution. Replace them with the originals from your phone (square, about 1000px) and swap the third panel for another: &lt;img src="work-3.jpg" alt="Curl cut"&gt;</p>
+    <div class="gal">
+      <img src="work-1.jpg" alt="Tapered curl cut, shaped and defined" width="500" height="500" loading="lazy">
+      <img src="work-2.jpg" alt="Long layered curls, cut dry for shape" width="500" height="500" loading="lazy">
+      <div class="slot"><div><svg viewBox="0 0 48 48" aria-hidden="true"><ellipse cx="24" cy="15" rx="7" ry="10.5" transform="rotate(0 24 24)"/><ellipse cx="24" cy="15" rx="7" ry="10.5" transform="rotate(72 24 24)"/><ellipse cx="24" cy="15" rx="7" ry="10.5" transform="rotate(144 24 24)"/><ellipse cx="24" cy="15" rx="7" ry="10.5" transform="rotate(216 24 24)"/><ellipse cx="24" cy="15" rx="7" ry="10.5" transform="rotate(288 24 24)"/><circle cx="24" cy="24" r="3"/></svg><p>PHOTO 3</p></div></div>
+    </div>
   </div>
 </section>
 
@@ -288,24 +336,11 @@ p{margin:0 0 1rem}
   </div>
 </section>
 
-<section class="band">
-  <div class="wrap">
-    <p class="label">THE WORK</p>
-    <h2>Recent clients</h2>
-    <p class="lede">EDIT ME &mdash; replace each panel below with your own photo: &lt;img src="photo-1.jpg" alt="Curl cut"&gt;</p>
-    <div class="gal">
-      <div class="slot"><div><svg viewBox="0 0 48 48" aria-hidden="true"><ellipse cx="24" cy="15" rx="7" ry="10.5" transform="rotate(0 24 24)"/><ellipse cx="24" cy="15" rx="7" ry="10.5" transform="rotate(72 24 24)"/><ellipse cx="24" cy="15" rx="7" ry="10.5" transform="rotate(144 24 24)"/><ellipse cx="24" cy="15" rx="7" ry="10.5" transform="rotate(216 24 24)"/><ellipse cx="24" cy="15" rx="7" ry="10.5" transform="rotate(288 24 24)"/><circle cx="24" cy="24" r="3"/></svg><p>PHOTO 1</p></div></div>
-      <div class="slot"><div><svg viewBox="0 0 48 48" aria-hidden="true"><ellipse cx="24" cy="15" rx="7" ry="10.5" transform="rotate(0 24 24)"/><ellipse cx="24" cy="15" rx="7" ry="10.5" transform="rotate(72 24 24)"/><ellipse cx="24" cy="15" rx="7" ry="10.5" transform="rotate(144 24 24)"/><ellipse cx="24" cy="15" rx="7" ry="10.5" transform="rotate(216 24 24)"/><ellipse cx="24" cy="15" rx="7" ry="10.5" transform="rotate(288 24 24)"/><circle cx="24" cy="24" r="3"/></svg><p>PHOTO 2</p></div></div>
-      <div class="slot"><div><svg viewBox="0 0 48 48" aria-hidden="true"><ellipse cx="24" cy="15" rx="7" ry="10.5" transform="rotate(0 24 24)"/><ellipse cx="24" cy="15" rx="7" ry="10.5" transform="rotate(72 24 24)"/><ellipse cx="24" cy="15" rx="7" ry="10.5" transform="rotate(144 24 24)"/><ellipse cx="24" cy="15" rx="7" ry="10.5" transform="rotate(216 24 24)"/><ellipse cx="24" cy="15" rx="7" ry="10.5" transform="rotate(288 24 24)"/><circle cx="24" cy="24" r="3"/></svg><p>PHOTO 3</p></div></div>
-    </div>
-  </div>
-</section>
-
 <section class="band band-sand" id="book">
   <div class="wrap">
     <p class="label">APPOINTMENTS</p>
     <h2>Book with us</h2>
-    <p class="lede" style="color:#6E6255">Pick a service and a time below. You'll get a confirmation straight away, and a reminder before your visit.</p>
+    <p class="lede">Pick a service and a time below. You'll get a confirmation straight away, and a reminder before your visit.</p>
     <div class="shell">
       <!-- ========= ACUITY BOOKING EMBED — do not change the src ========= -->
       <iframe
@@ -329,7 +364,7 @@ p{margin:0 0 1rem}
       <div class="fact"><h3>HOURS</h3>
         <p>EDIT ME<br>e.g. Tue&ndash;Fri 10&ndash;7<br>Sat 9&ndash;5<br>Sun &amp; Mon closed</p></div>
       <div class="fact"><h3>GET IN TOUCH</h3>
-        <p><a href="tel:+15853974588">585-397-4588</a><br><a href="mailto:ownder@curlpower.com">EDIT ME &mdash; email</a></p></div>
+        <p><a href="tel:+15853974588">585-397-4588</a><br><a href="mailto:EDIT-ME@YOURDOMAIN.com">EDIT ME &mdash; email</a></p></div>
       <div class="fact"><h3>FOLLOW</h3>
         <p><a href="#">EDIT ME &mdash; Instagram</a></p></div>
     </div>

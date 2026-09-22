@@ -1,0 +1,153 @@
+/* ==========================================================================
+   CURL POWER — Acuity Advanced CSS
+   --------------------------------------------------------------------------
+   Paste into: Acuity -> Scheduling Page -> Advanced CSS -> Save.
+   Use "Preview Changes" on that page before saving.
+
+   REQUIRES the Premium or Powerhouse plan. On Starter/Emerging the Advanced
+   CSS panel is not available and none of this will apply.
+
+   Only the selectors Acuity officially supports are used here, so this
+   should survive their platform updates.
+   ========================================================================== */
+
+@import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600&family=Jost:wght@300;400;500&display=swap');
+
+/* --------------------------------------------------------------------------
+   1. EMBED ONLY — hide what the website already says
+   .is-embedded applies inside your site, not on the standalone booking link,
+   so your direct link keeps its heading for people who use it.
+   -------------------------------------------------------------------------- */
+.is-embedded .business-container        { display: none; }
+.is-embedded .business-description-container { display: none; }
+
+/* --------------------------------------------------------------------------
+   2. STEP HEADINGS — "Select Appointment", "Date & Time"
+   -------------------------------------------------------------------------- */
+.step-title {
+  font-family: "Cormorant Garamond", Georgia, serif;
+  font-weight: 400;
+  font-size: 2rem;
+  line-height: 1.1;
+  color: #2F5D50;
+}
+
+.select-label {
+  font-family: "Jost", "Segoe UI", system-ui, sans-serif;
+  font-size: .72rem;
+  font-weight: 400;
+  letter-spacing: .24em;
+  text-transform: uppercase;
+  color: #B85046;
+}
+
+/* --------------------------------------------------------------------------
+   3. SERVICE CARDS
+   -------------------------------------------------------------------------- */
+.select-item-box {
+  background: #fff;
+  border: 1px solid rgba(207, 175, 110, .55);
+  border-radius: 3px;
+  transition: border-color .18s ease, box-shadow .18s ease;
+}
+.select-item-box:hover {
+  border-color: #F05A4B;
+  box-shadow: 0 12px 28px -20px rgba(47, 93, 80, .55);
+}
+
+.appointment-type-name {
+  font-family: "Cormorant Garamond", Georgia, serif;
+  font-weight: 500;
+  font-size: 1.4rem;
+  color: #2F5D50;
+}
+
+.duration-container {
+  font-family: "Jost", "Segoe UI", system-ui, sans-serif;
+  font-size: .78rem;
+  font-weight: 400;
+  letter-spacing: .1em;
+  color: #7A6E62;
+}
+
+.type-description {
+  font-family: "Jost", "Segoe UI", system-ui, sans-serif;
+  font-weight: 300;
+  color: #6A5E52;
+  line-height: 1.6;
+}
+
+/* --------------------------------------------------------------------------
+   4. CALENDAR
+   -------------------------------------------------------------------------- */
+.scheduleday {
+  font-family: "Jost", "Segoe UI", system-ui, sans-serif;
+  font-weight: 300;
+}
+.scheduleday.activeday {
+  color: #2F5D50;
+  font-weight: 500;
+}
+.scheduleday.selectedday {
+  background: #2F5D50;
+  color: #F8F6F2;
+  border-radius: 50%;
+}
+
+/* --------------------------------------------------------------------------
+   5. TIME SLOTS — pills that match the site's buttons
+   -------------------------------------------------------------------------- */
+.time-selection {
+  font-family: "Jost", "Segoe UI", system-ui, sans-serif;
+  font-weight: 400;
+  letter-spacing: .04em;
+  color: #2F5D50;
+  background: #fff;
+  border: 1px solid rgba(207, 175, 110, .6);
+  border-radius: 100px;
+  transition: border-color .15s ease, background .15s ease;
+}
+.time-selection:hover {
+  border-color: #F05A4B;
+  background: #FFF6F3;
+}
+.time-selection.selected-time {
+  background: #F05A4B;
+  border-color: #F05A4B;
+  color: #fff;
+}
+
+/* --------------------------------------------------------------------------
+   6. BUTTONS
+   -------------------------------------------------------------------------- */
+.btn {
+  font-family: "Jost", "Segoe UI", system-ui, sans-serif;
+  font-weight: 400;
+  font-size: 1rem;
+  letter-spacing: .09em;
+  color: #fff;
+  background: linear-gradient(180deg, #F4675A, #E0503F);
+  border: 0;
+  border-radius: 100px;
+  padding: 1rem 2.2rem;
+  box-shadow: 0 10px 26px -14px rgba(224, 80, 63, .9);
+}
+
+/* --------------------------------------------------------------------------
+   7. INTAKE FORM
+   -------------------------------------------------------------------------- */
+.custom-form {
+  font-family: "Jost", "Segoe UI", system-ui, sans-serif;
+  font-weight: 300;
+  color: #332C24;
+}
+
+/* --------------------------------------------------------------------------
+   NOTE ON FONTS
+   If @import is stripped by Acuity, Cormorant and Jost will not load inside
+   the scheduler and it falls back to Georgia and your system sans. That still
+   looks tidy. To force the real fonts, open
+   https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500&family=Jost:wght@300;400;500
+   in a browser, copy the woff2 URLs it returns, and declare them here with
+   @font-face, which Acuity supports explicitly.
+   ========================================================================== */

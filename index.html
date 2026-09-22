@@ -16,11 +16,11 @@
   Nothing above is a placeholder showing on the page. The site reads as
   finished as it stands.
 
-  BUILD 2026-09-21-k  — check this against your live site (see below)
-  Assets: logo.png · mark.png · owner.jpg · before-1..4 · after-1..4 · look-1a/1b/2a/2b · .nojekyll
+  BUILD 2026-09-22-m  — check this against your live site (see below)
+  Assets: logo.png · mark.png · owner.jpg · before-1..4 · after-1..4 · look-1a/1b/2a/2b · apple-touch-icon.png · icon-192/512/maskable.png · favicon-192.png · site.webmanifest · .nojekyll
   ===========================================================================
 -->
-<html lang="en" data-build="2026-09-21-k">
+<html lang="en" data-build="2026-09-22-m">
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
@@ -35,8 +35,19 @@
 <meta property="og:type" content="website">
 <meta property="og:title" content="Curl Power — The Curl Experts">
 <meta property="og:description" content="Personalized haircare and education for every texture, age and culture. Downtown Rochester, NY.">
-<link rel="icon" href="mark.png">
-<link rel="apple-touch-icon" href="mark.png">
+<!-- Tab favicon stays on the brand green: gold on white disappears against
+     a light browser tab bar. The home-screen icons are white. -->
+<link rel="icon" href="favicon-192.png">
+<!-- Home-screen icon. 180x180, square, flat white, no transparency.
+     iOS fills transparent touch icons with black, so the background is
+     baked in rather than left to the phone. -->
+<link rel="apple-touch-icon" href="apple-touch-icon.png">
+<link rel="manifest" href="site.webmanifest">
+<meta name="theme-color" content="#1D4034">
+<!-- Without this, iOS truncates the page <title> under the icon and you get
+     "CurlPower—Th...". This sets the label explicitly. -->
+<meta name="apple-mobile-web-app-title" content="Curl Power">
+<meta name="application-name" content="Curl Power">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;1,300;1,400&family=Jost:wght@300;400;500&display=swap" rel="stylesheet">

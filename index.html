@@ -22,11 +22,11 @@
   Nothing above is a placeholder showing on the page. The site reads as
   finished as it stands.
 
-  BUILD 2026-10-08-c  — view source on the live site to confirm it updated
-  Assets: logo.png · mark.png · way-in.mp4 · way-in-poster.jpg · owner.jpg · ba-01..08-before/after.jpg · look-bob-a/b.jpg · apple-touch-icon.png · icon-192.png · icon-512.png · icon-maskable-512.png · site.webmanifest
+  BUILD 2026-10-08-f  — view source on the live site to confirm it updated
+  Assets: logo.png · mark.png · way-in.mp4 · way-in-poster.jpg · owner.jpg · ba-01..08-before/after.jpg · look-bob-a/b.jpg · apple-touch-icon-black.png · icon-black-32/192/512.png · icon-black-maskable-512.png · site-black.webmanifest
   ===========================================================================
 -->
-<html lang="en" data-build="2026-10-08-c">
+<html lang="en" data-build="2026-10-08-f">
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
@@ -41,10 +41,13 @@
 <meta property="og:type" content="website">
 <meta property="og:title" content="Curl Power — The Curl Experts">
 <meta property="og:description" content="Personalized haircare and education for every texture, age and culture. Downtown Rochester, NY.">
-<!-- Tab and home-screen icons: the gold mark on white. -->
-<link rel="icon" href="icon-192.png">
-<link rel="apple-touch-icon" href="apple-touch-icon.png">
-<link rel="manifest" href="site.webmanifest">
+<!-- Tab and home-screen icons: the gold mark on black, to match the site.
+     They have new file names on purpose: browsers hold on to old icons for a
+     long time, and a new name makes them fetch the new one. -->
+<link rel="icon" type="image/png" sizes="32x32" href="icon-black-32.png">
+<link rel="icon" type="image/png" sizes="192x192" href="icon-black-192.png">
+<link rel="apple-touch-icon" href="apple-touch-icon-black.png">
+<link rel="manifest" href="site-black.webmanifest">
 <meta name="theme-color" content="#000000">
 <!-- Without this, iOS truncates the page <title> under the icon and you get
      "CurlPower—Th...". This sets the label explicitly. -->

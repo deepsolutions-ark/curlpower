@@ -22,11 +22,11 @@
   Nothing above is a placeholder showing on the page. The site reads as
   finished as it stands.
 
-  BUILD 2026-10-07-a  — view source on the live site to confirm it updated
+  BUILD 2026-10-08-b  — view source on the live site to confirm it updated
   Assets: logo.png · mark.png · way-in.mp4 · way-in-poster.jpg · owner.jpg · ba-01..08-before/after.jpg · look-bob-a/b.jpg · apple-touch-icon.png · icon-192.png · icon-512.png · icon-maskable-512.png · site.webmanifest
   ===========================================================================
 -->
-<html lang="en" data-build="2026-10-07-a">
+<html lang="en" data-build="2026-10-08-b">
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
@@ -81,6 +81,7 @@ img,video{max-width:100%;display:block}
 img{height:auto}
 a{color:inherit}
 :focus-visible{outline:2px solid var(--gold);outline-offset:4px;border-radius:2px}
+::selection{background:var(--gold-lt);color:var(--black)}
 h1,h2,h3{font-family:var(--display);font-weight:300;line-height:1.02;letter-spacing:-.01em;margin:0}
 p{margin:0 0 1rem}
 .wrap{max-width:76rem;margin-inline:auto;position:relative;
@@ -195,7 +196,7 @@ p{margin:0 0 1rem}
 @media(prefers-reduced-motion:reduce){
   html{scroll-behavior:auto}
   .hero-logo,.hero h1,.hero .sub,.hero .loc,.hero-cta,.door video,.door::before,.fins,.way-toggle,.way figcaption{animation:none}
-  .btn,.nav a,.way-toggle,.go{transition:none}
+  .btn,.nav a,.way-toggle,.go,.svc a::after{transition:none}
 }
 
 /* bands */
@@ -210,12 +211,15 @@ p{margin:0 0 1rem}
 @media(max-width:860px){.svc-grid{grid-template-columns:1fr}}
 .svc{list-style:none;margin:0;padding:0;border-top:1px solid var(--rule)}
 .svc li{border-bottom:1px solid var(--rule)}
-.svc a{display:flex;align-items:baseline;gap:1.1rem;padding-block:1.35rem;text-decoration:none;
+.svc a{position:relative;display:flex;align-items:baseline;gap:1.1rem;padding-block:1.35rem;text-decoration:none;
   font-family:var(--display);font-size:clamp(1.6rem,2.8vw,2.15rem);font-weight:400;line-height:1.15;color:var(--black)}
 .dot{flex:none;width:.4rem;height:.4rem;border-radius:50%;background:var(--gold);transform:translateY(-.3rem)}
 .go{margin-left:auto;font-family:var(--body);font-size:.88rem;letter-spacing:.04em;color:var(--grey);white-space:nowrap;
   text-decoration:underline;text-decoration-color:transparent;text-underline-offset:5px;transition:color .18s,text-decoration-color .18s}
 .svc a:hover .go,.svc a:focus-visible .go{color:var(--black);text-decoration-color:var(--gold)}
+.svc a::after{content:"";position:absolute;left:0;right:0;bottom:-1px;height:1px;background:var(--gold);
+  transform:scaleX(0);transform-origin:left center;transition:transform .55s cubic-bezier(.2,.7,.3,1)}
+.svc a:hover::after,.svc a:focus-visible::after{transform:scaleX(1)}
 .svc-note{margin:2rem 0 0;color:var(--grey);font-size:.95rem;max-width:30rem}
 
 /* the work */

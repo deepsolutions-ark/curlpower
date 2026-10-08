@@ -1,7 +1,8 @@
 /* ==========================================================================
-   CURL POWER — Acuity Advanced CSS
+   CURL POWER — Acuity Advanced CSS  (black and white, October 2026)
    --------------------------------------------------------------------------
-   Paste into: Acuity -> Scheduling Page -> Advanced CSS -> Save.
+   Paste into: Acuity -> Scheduling Page -> Advanced CSS -> Save, replacing
+   the green-and-coral version that was there before.
    Use "Preview Changes" on that page before saving.
 
    REQUIRES the Premium or Powerhouse plan. On Starter/Emerging the Advanced
@@ -11,7 +12,7 @@
    should survive their platform updates.
    ========================================================================== */
 
-@import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600&family=Jost:wght@300;400;500&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500&family=Jost:wght@300;400;500&display=swap');
 
 /* --------------------------------------------------------------------------
    1. EMBED ONLY — hide what the website already says
@@ -29,16 +30,16 @@
   font-weight: 400;
   font-size: 2rem;
   line-height: 1.1;
-  color: #2F5D50;
+  color: #000;
 }
 
 .select-label {
   font-family: "Jost", "Segoe UI", system-ui, sans-serif;
-  font-size: .72rem;
-  font-weight: 400;
-  letter-spacing: .24em;
-  text-transform: uppercase;
-  color: #B85046;
+  font-size: .82rem;
+  font-weight: 500;
+  letter-spacing: .04em;
+  text-transform: none;
+  color: #5A5A5A;
 }
 
 /* --------------------------------------------------------------------------
@@ -46,34 +47,33 @@
    -------------------------------------------------------------------------- */
 .select-item-box {
   background: #fff;
-  border: 1px solid rgba(207, 175, 110, .55);
-  border-radius: 3px;
-  transition: border-color .18s ease, box-shadow .18s ease;
+  border: 1px solid rgba(0, 0, 0, .14);
+  border-radius: 2px;
+  transition: border-color .18s ease;
 }
 .select-item-box:hover {
-  border-color: #F05A4B;
-  box-shadow: 0 12px 28px -20px rgba(47, 93, 80, .55);
+  border-color: #000;
 }
 
 .appointment-type-name {
   font-family: "Cormorant Garamond", Georgia, serif;
   font-weight: 500;
-  font-size: 1.4rem;
-  color: #2F5D50;
+  font-size: 1.45rem;
+  color: #000;
 }
 
 .duration-container {
   font-family: "Jost", "Segoe UI", system-ui, sans-serif;
-  font-size: .78rem;
+  font-size: .8rem;
   font-weight: 400;
-  letter-spacing: .1em;
-  color: #7A6E62;
+  letter-spacing: .04em;
+  color: #5A5A5A;
 }
 
 .type-description {
   font-family: "Jost", "Segoe UI", system-ui, sans-serif;
   font-weight: 300;
-  color: #6A5E52;
+  color: #3A3A3A;
   line-height: 1.6;
 }
 
@@ -85,12 +85,12 @@
   font-weight: 300;
 }
 .scheduleday.activeday {
-  color: #2F5D50;
+  color: #000;
   font-weight: 500;
 }
 .scheduleday.selectedday {
-  background: #2F5D50;
-  color: #F8F6F2;
+  background: #000;
+  color: #fff;
   border-radius: 50%;
 }
 
@@ -101,36 +101,41 @@
   font-family: "Jost", "Segoe UI", system-ui, sans-serif;
   font-weight: 400;
   letter-spacing: .04em;
-  color: #2F5D50;
+  color: #000;
   background: #fff;
-  border: 1px solid rgba(207, 175, 110, .6);
+  border: 1px solid rgba(0, 0, 0, .22);
   border-radius: 100px;
   transition: border-color .15s ease, background .15s ease;
 }
 .time-selection:hover {
-  border-color: #F05A4B;
-  background: #FFF6F3;
+  border-color: #000;
+  background: #F4F4F3;
 }
 .time-selection.selected-time {
-  background: #F05A4B;
-  border-color: #F05A4B;
+  background: #000;
+  border-color: #000;
   color: #fff;
 }
 
 /* --------------------------------------------------------------------------
-   6. BUTTONS
+   6. BUTTONS — black, turning the logo's gold on hover, like the website
    -------------------------------------------------------------------------- */
 .btn {
   font-family: "Jost", "Segoe UI", system-ui, sans-serif;
   font-weight: 400;
   font-size: 1rem;
-  letter-spacing: .09em;
+  letter-spacing: .05em;
   color: #fff;
-  background: linear-gradient(180deg, #F4675A, #E0503F);
+  background: #000;
   border: 0;
   border-radius: 100px;
   padding: 1rem 2.2rem;
-  box-shadow: 0 10px 26px -14px rgba(224, 80, 63, .9);
+  box-shadow: none;
+  transition: background-color .2s ease, color .2s ease;
+}
+.btn:hover {
+  background: #E3B04B;
+  color: #000;
 }
 
 /* --------------------------------------------------------------------------
@@ -139,7 +144,7 @@
 .custom-form {
   font-family: "Jost", "Segoe UI", system-ui, sans-serif;
   font-weight: 300;
-  color: #332C24;
+  color: #1A1A1A;
 }
 
 /* --------------------------------------------------------------------------
